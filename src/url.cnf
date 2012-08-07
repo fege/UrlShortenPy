@@ -1,0 +1,19 @@
+host                = "ec2-23-23-28-101.compute-1.amazonaws.com"
+bin_path            = "./"
+server_port         = 443
+server_proto        = "SSL"
+server_ssl_certfile = "./ssl/server.crt"  
+server_ssl_keyfile  = "./ssl/server.key" 
+
+# URL DRIVER
+#############################################
+url_driver  = "redisDB"
+url_db      = "1"
+url_host    = "localhost"
+url_port    = 6379
+url_passwd  = ""
+
+ 
+
+
+

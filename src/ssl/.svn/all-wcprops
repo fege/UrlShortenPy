@@ -1,0 +1,29 @@
+K 25
+svn:wc:ra_dav:version-url
+V 32
+/repos/mys3/!svn/ver/134/src/ssl
+END
+server.key
+K 25
+svn:wc:ra_dav:version-url
+V 43
+/repos/mys3/!svn/ver/134/src/ssl/server.key
+END
+server.csr
+K 25
+svn:wc:ra_dav:version-url
+V 43
+/repos/mys3/!svn/ver/134/src/ssl/server.csr
+END
+server.key.org
+K 25
+svn:wc:ra_dav:version-url
+V 47
+/repos/mys3/!svn/ver/134/src/ssl/server.key.org
+END
+server.crt
+K 25
+svn:wc:ra_dav:version-url
+V 43
+/repos/mys3/!svn/ver/134/src/ssl/server.crt
+END

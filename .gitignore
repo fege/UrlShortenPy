@@ -1,8 +1,5 @@
-*.py[co]
-
 # Packages
-*.egg
-*.egg-info
+
 dist
 build
 eggs
@@ -11,7 +8,6 @@ bin
 var
 sdist
 develop-eggs
-.installed.cfg
 
 # Installer logs
 pip-log.txt
