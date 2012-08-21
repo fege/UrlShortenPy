@@ -5,8 +5,11 @@ Created on 04/ago/2012
 '''
 import tornado.web
 import time
-import logging
 import sys
+import logging
+import logging.config
+logging.config.fileConfig("logging.conf")
+
 #alphabet to use in short url
 ALPHABET=map(str,range(0, 10)) + map(chr, range(97, 123) + range(65, 91))
 
@@ -43,8 +46,13 @@ class UrlHandler(tornado.web.RequestHandler):
             self.write("Form was empty")
             self.write("<br>")
             self.write("<a href='https://ec2-23-23-28-101.compute-1.amazonaws.com/home'>Back</a>")
-        else:   
-             
+            
+        elif self.check_long_url(long_url):
+            self.write("Url is already short %s " %long_url)
+            self.write("<br>")
+            self.write("<a href='https://ec2-23-23-28-101.compute-1.amazonaws.com/home'>Back</a>") 
+            
+        else:
             short_url = ''
             #check if the long_url it is already created a short_url
             res = self.application.UrlManager.checkUrl(long_url)
@@ -88,5 +96,17 @@ class UrlHandler(tornado.web.RequestHandler):
             chars.append(letters[int(num_url % base)])
             num_url //= base
         return ''.join(chars)
+    
+    def check_long_url(self,long_url):
+        '''
+        function to control if long url is already short
+        '''
+        if long_url.count('/') == 2:
+            return True
+        
+        if long_url.count('/') == 3 and long_url.rfind('/')+1 == len(long_url):
+            return True
+        
+        return False
 
     

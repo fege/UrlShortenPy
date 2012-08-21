@@ -6,6 +6,8 @@ Created on 04/ago/2012
 import tornado.options
 from tornado.options import define, options
 import logging
+import logging.config
+logging.config.fileConfig("logging.conf")
 
 class UrlMng(object):
     '''

@@ -7,6 +7,8 @@ import redis
 import tornado.options
 from tornado.options import define, options
 import logging
+import logging.config
+logging.config.fileConfig("logging.conf")
 
 class UrlDriver():
     '''

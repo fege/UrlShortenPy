@@ -4,7 +4,9 @@ Created on 04/ago/2012
 @author: fede
 '''
 import tornado.web
-import logging 
+import logging
+import logging.config
+logging.config.fileConfig("logging.conf")
 
 class FinalHandler(tornado.web.RequestHandler):
     '''
@@ -19,6 +21,6 @@ class FinalHandler(tornado.web.RequestHandler):
         self._LOGGER.debug("Get operation to redirect ")
 
         long_url = self.application.UrlManager.getLong(url)
-        
+
         self._LOGGER.debug("Redirect to %s " %long_url)
         self.redirect(long_url, True, 301)
