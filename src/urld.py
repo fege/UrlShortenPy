@@ -53,6 +53,8 @@ class UrlApp(tornado.web.Application):
         #
         #URL HANDLER
         #############################################################################
+        from handlers.InitialHandler import InitialHandler
+        rootHandlers.append((r"/", InitialHandler))
         from handlers.UrlHandler import UrlHandler
         rootHandlers.append((r"/home", UrlHandler))
         from handlers.FinalHandler import FinalHandler

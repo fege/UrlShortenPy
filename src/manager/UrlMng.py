@@ -35,6 +35,14 @@ class UrlMng(object):
         #get long_url stored on DB given short_url
         return self.url.getLong(short_url)
     
+    def getVisit(self,long_url):
+        #get number of visit of long_url stored on DB 
+        return self.url.getVisit(long_url)
+
+    def getDate(self,long_url):
+        #get the date of first time of long_url stored on DB 
+        return self.url.getDate(long_url)
+    
     def checkUrl(self,long_url):
         #check the existence of long_url on the DB
         res = self.url.checkExist(long_url)
@@ -56,3 +64,12 @@ class UrlMng(object):
     def setShort(self,long_url,short_url):
         #set the short_url linked to the long_url
         self.url.setShort(long_url,short_url)
+    
+    def setVisit(self,long_url):
+        #update the counter
+        self.url.setVisit(long_url)
+
+    def setDate(self,long_url):
+        #set the date of the first request
+        self.url.setDate(long_url)
+        
