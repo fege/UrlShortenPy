@@ -1,4 +1,4 @@
-host                = "localhost" 
+host                = "urlshorten.alluneed.it" 
 #"ec2-23-23-28-101.compute-1.amazonaws.com"
 bin_path            = "./"
 server_port         = 443
