@@ -19,7 +19,7 @@ class UrlDriver():
     
     def __init__(self):
         define("url_db",     default="1"         , help="Redis DB",)
-        define("url_host",   default="urlshorten.alluneed.it" , help="Redis DB host",)
+        define("url_host",   default="localhost" , help="Redis DB host",)
         define("url_port",   default=6379        , help="Redis DB port", type=int)
         define("url_passwd", default=None        , help="Redis DB password",)
         #READ Options
