@@ -96,7 +96,7 @@ class UrlHandler(tornado.web.RequestHandler):
             self.write("<br>")
             self.write("click below or copy and paste on a browser")
             self.write("<br>")
-            self.write("link: <a href='https://localhost/"+str(short_url)+"'>https://urlshorten.alluneed.it/"+str(short_url)+"</a>")
+            self.write("link: <a href='https://urlshorten.alluneed.it/"+str(short_url)+"'>https://urlshorten.alluneed.it/"+str(short_url)+"</a>")
             #self.write("link: <a href='https://ec2-23-23-28-101.compute-1.amazonaws.com/"+str(short_url)+"'>https://ec2-23-23-28-101.compute-1.amazonaws.com/"+str(short_url)+"</a>")
             self.write("<br>")
             self.write("number of visit for "+str(long_url)+" is "+num_view)
