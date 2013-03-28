@@ -47,12 +47,12 @@ class UrlHandler(tornado.web.RequestHandler):
             self._LOGGER.debug("no long url %s " %long_url)
             self.write("Form was empty")
             self.write("<br>")
-            self.write("<a href='https://localhost/home'>Back</a>")
+            self.write("<a href='http://urlshorten.alluneed.it/home'>Back</a>")
         elif self.check_long_url(long_url):
             self._LOGGER.debug("Url already short %s " %long_url)
             self.write("Url is already short %s " %long_url)
             self.write("<br>")
-            self.write("<a href='https://localhost/home'>Back</a>")
+            self.write("<a href='http://urlshorten.alluneed.it/home'>Back</a>")
         else:
             short_url = ''
             #check if the long_url it is already created a short_url
@@ -100,7 +100,7 @@ class UrlHandler(tornado.web.RequestHandler):
             self.write("<td>VISIT NUMBER</td>")
             self.write("<td>SAVED</td>")
             self.write("</tr><tr align=center>")
-            self.write("<td><a href='https://localhost/"+str(short_url)+"'>https://localhost/"+str(short_url)+"</a></td>")
+            self.write("<td><a href='http://urlshorten.alluneed.it/"+str(short_url)+"'>http://urlshorten.alluneed.it/"+str(short_url)+"</a></td>")
             self.write("<td>"+num_view+"</td>")
             self.write("<td>"+str(date_insert)+"</td>")
             self.write("</tr>")
@@ -108,7 +108,7 @@ class UrlHandler(tornado.web.RequestHandler):
             self.write("<br>")
             #FUTURE self.write("present in the db for "+intervall+" days")
             self.write("<br>")
-            self.write("<a href='https://localhost/home'>Back</a>")
+            self.write("<a href='http://urlshorten.alluneed.it/home'>Back</a>")
         
     def conv_code(self,num_url, letters=ALPHABET):
         '''
