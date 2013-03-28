@@ -47,14 +47,12 @@ class UrlHandler(tornado.web.RequestHandler):
             self._LOGGER.debug("no long url %s " %long_url)
             self.write("Form was empty")
             self.write("<br>")
-            #self.write("<a href='https://ec2-23-23-28-101.compute-1.amazonaws.com/home'>Back</a>")
-            self.write("<a href='https://urlshorten.alluneed.it/home'>Back</a>")
+            self.write("<a href='https://localhost/home'>Back</a>")
         elif self.check_long_url(long_url):
             self._LOGGER.debug("Url already short %s " %long_url)
             self.write("Url is already short %s " %long_url)
             self.write("<br>")
-            #self.write("<a href='https://ec2-23-23-28-101.compute-1.amazonaws.com/home'>Back</a>") 
-            self.write("<a href='https://urlshorten.alluneed.it/home'>Back</a>")
+            self.write("<a href='https://localhost/home'>Back</a>")
         else:
             short_url = ''
             #check if the long_url it is already created a short_url
@@ -86,27 +84,31 @@ class UrlHandler(tornado.web.RequestHandler):
             
             num_view = self.application.UrlManager.getVisit(long_url)
             date_insert = self.application.UrlManager.getDate(long_url)
-            #intervall = datetime.now()-datetime(date_insert)
-            
+            #FUTURE intervall = datetime.now()-datetime(date_insert)
+
             self._LOGGER.debug("short url saved %s " %short_url)
             self._LOGGER.debug("long url saved %s " %long_url)
             self._LOGGER.debug("num view %s for %s getted" %(num_view,long_url))
             self._LOGGER.debug("date getted %s " %date_insert)
-            
+
             self.write("<br>")
-            self.write("click below or copy and paste on a browser")
+            self.write("click the link copy and paste it on a browser")
             self.write("<br>")
-            self.write("link: <a href='https://urlshorten.alluneed.it/"+str(short_url)+"'>https://urlshorten.alluneed.it/"+str(short_url)+"</a>")
-            #self.write("link: <a href='https://ec2-23-23-28-101.compute-1.amazonaws.com/"+str(short_url)+"'>https://ec2-23-23-28-101.compute-1.amazonaws.com/"+str(short_url)+"</a>")
             self.write("<br>")
-            self.write("number of visit for "+str(long_url)+" is "+num_view)
+            self.write("<table border=2><tr align=center>")
+            self.write("<td>LINK</td>")
+            self.write("<td>VISIT NUMBER</td>")
+            self.write("<td>SAVED</td>")
+            self.write("</tr><tr align=center>")
+            self.write("<td><a href='https://localhost/"+str(short_url)+"'>https://localhost/"+str(short_url)+"</a></td>")
+            self.write("<td>"+num_view+"</td>")
+            self.write("<td>"+str(date_insert)+"</td>")
+            self.write("</tr>")
+            self.write("</table>")
             self.write("<br>")
-            self.write("saved the first time the "+str(date_insert))
+            #FUTURE self.write("present in the db for "+intervall+" days")
             self.write("<br>")
-            #self.write("present in the db for "+intervall+" days")
-            #self.write("<br>")
-            self.write("<a href='https://urlshorten.alluneed.it/home'>Back</a>")
-            #self.write("<a href='https://ec2-23-23-28-101.compute-1.amazonaws.com/home'>Back</a>")
+            self.write("<a href='https://localhost/home'>Back</a>")
         
     def conv_code(self,num_url, letters=ALPHABET):
         '''
@@ -137,7 +139,7 @@ class UrlHandler(tornado.web.RequestHandler):
         '''
         function to control if long url is already short
         '''
-        if long_url.count('/') == 2:
+        if long_url.count('/') <= 2:
             return True
         
         if long_url.count('/') == 3 and long_url.rfind('/')+1 == len(long_url):
